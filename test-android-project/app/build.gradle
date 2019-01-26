@@ -3,7 +3,7 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.example.androidtest"
@@ -20,7 +20,8 @@ android {
         def wd = file('.').absolutePath
         workingDir wd
 
-        def ndkDir = plugins.getPlugin('com.android.application').sdkHandler.getNdkFolder()
+        //def ndkDir = plugins.getPlugin('com.android.application').sdkHandler.getNdkFolder()
+        def ndkDir = project.android.ndkDirectory
         if (ndkDir == null)
             throw new RuntimeException("ndk.dir=/path/to/ndk was not found in your local.properties file and ANDROID_NDK_HOME enviroment variable was not set either");
 
